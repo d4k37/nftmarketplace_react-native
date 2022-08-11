@@ -28,11 +28,27 @@ export const CircleButton = ( {imgURL, handlePress, ...props} ) => {
   )
 }
 
-export const RectButton = () => {
+export const RectButton = (minWidth, fontSize, handlePress, ...props) => {
     return (
-      <View>
-        <Text>Button</Text>
-      </View>
+      <TouchableOpacity
+      style={{
+        backgroundColor: COLORS.primary,
+        borderRadius: SIZES.extraLarge,
+        minWidth: 120,
+        padding: SIZES.small,
+        ...props
+    }}
+    onPress={handlePress}
+      >
+         <Text style={{
+           fontFamily: FONTS.semiBold,
+           fontSize: SIZES.font,
+           color: COLORS.white,
+           textAlign: 'center'
+         }}>
+           Faça um lance
+         </Text>
+      </TouchableOpacity>
     )
   }
   
