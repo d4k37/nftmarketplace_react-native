@@ -1,10 +1,11 @@
 import { View, Text, TouchableOpacity, Image } from 'react-native'
-
+import {useNavigation} from "@react-navigation/native"
 
 import {COLORS, SIZES, FONTS, SHADOWS} from '../constants'
 
 
 export const CircleButton = ( {imgURL, handlePress, ...props} ) => {
+  
   return (
  <TouchableOpacity
  style={{
@@ -28,21 +29,22 @@ export const CircleButton = ( {imgURL, handlePress, ...props} ) => {
   )
 }
 
-export const RectButton = (minWidth, fontSize, handlePress, ...props) => {
-    return (
+export const RectButton = ({minWidth, fontSize, handlePress, data, ...props}) => {
+  
+  return (
       <TouchableOpacity
       style={{
         backgroundColor: COLORS.primary,
         borderRadius: SIZES.extraLarge,
-        minWidth: 120,
+        minWidth: minWidth,
         padding: SIZES.small,
         ...props
-    }}
-    onPress={handlePress}
+            }}
+      onPress={handlePress}
       >
          <Text style={{
            fontFamily: FONTS.semiBold,
-           fontSize: SIZES.font,
+           fontSize: fontSize,
            color: COLORS.white,
            textAlign: 'center'
          }}>
